@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-lg mt-10 p-6 bg-white rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold text-center mb-6">Contact Us</h2>
+        <form id="contactForm" class="space-y-4" action="#" method="POST">
+            <div class="flex flex-col">
+                <label for="name" class="text-sm font-semibold text-gray-600">Name</label>
+                <input type="text" id="name" name="name" required
+                       class="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="flex flex-col">
+                <label for="email" class="text-sm font-semibold text-gray-600">Email</label>
+                <input type="email" id="email" name="email" required
+                       class="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="flex flex-col">
+                <label for="phone" class="text-sm font-semibold text-gray-600">Phone Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required
+                       class="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
+                <small class="text-xs text-gray-500">Format: 1234567890</small>
+            </div>
+            <div class="flex flex-col">
+                <label for="message" class="text-sm font-semibold text-gray-600">Message</label>
+                <textarea id="message" name="message" rows="4" required
+                          class="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+        </form>
+        <p id="submitMessage" class="text-green-600 text-center mt-4 hidden">Thanks for submitting!</p>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitMessage = document.getElementById('submitMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            setTimeout(() => {
+                // Display submit message and hide form
+                form.reset(); // Optional: Clear form inputs after submission
+                form.classList.add('hidden');
+                submitMessage.classList.remove('hidden');
+            }, 1000); // Replace with actual submission logic and adjust timing
+        });
+    </script>
+
+</body>
+</html>
